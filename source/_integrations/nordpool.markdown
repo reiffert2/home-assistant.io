@@ -18,6 +18,8 @@ ha_integration_type: integration
 
 Integrates [Nord Pool Group](https://www.nordpoolgroup.com/) energy prices into Home Assistant.
 
+This integration provides the public market prices displayed on the [Nord Pool Auction page](https://data.nordpoolgroup.com/auction/day-ahead/prices).
+
 {% include integrations/config_flow.md %}
 
 {% tip %}
