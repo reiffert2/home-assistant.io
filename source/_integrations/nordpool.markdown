@@ -16,9 +16,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates [Nord Pool Group](https://www.nordpoolgroup.com/) energy prices into Home Assistant.
+The **Nord Pool** {% term integration %} integrates [Nord Pool Group](https://www.nordpoolgroup.com/) energy prices into Home Assistant.
 
-This integration provides the public market prices displayed on the [Nord Pool Auction page](https://data.nordpoolgroup.com/auction/day-ahead/prices).
+The {% term integration %} provides the public market prices displayed on the [Nord Pool Auction page](https://data.nordpoolgroup.com/auction/day-ahead/prices).
 
 {% include integrations/config_flow.md %}
 
@@ -26,7 +26,15 @@ This integration provides the public market prices displayed on the [Nord Pool A
 Only a single configuration entry is supported so ensure you select all the areas of interest when you setup the integration.
 
 EUR is the base currency for market prices, You will find in the `Exchange rate` sensor the relevant conversion used if you choose another currency.
+All prices will be displayed as `selected_currency/kWh`.
 {% endtip %}
+
+{% configuration_basic %}
+Areas:
+  description: Select one or multiple of market areas to create sensors for.
+Currency:
+  description: Currency to display prices in, EUR is the base currency in Nord Pool prices.
+{% endconfiguration_basic %}
 
 ## Sensors
 
@@ -60,3 +68,5 @@ This sensor is not enabled by default.
 - Last updated - indicated when the market price was last updated.
 - Currency - The selected currency.
 - Exchange rate - EUR is the base currency so will show the exchange rate used on the market place.
+
+The `Exchange rate` sensor is not enabled by default.
