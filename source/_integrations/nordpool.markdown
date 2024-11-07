@@ -70,3 +70,24 @@ This sensor is not enabled by default.
 - Exchange rate - EUR is the base currency so will show the exchange rate used on the market place.
 
 The `Exchange rate` sensor is not enabled by default.
+
+## Example
+
+A simple template sensor to add VAT and a fixed cost from an `input_number` entity
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: "Full SE3 current price"
+        unit_of_measurement: "SEK/kWh"
+        state_class: measurement
+        state: >
+          {% set cost = states('sensor.nord pool_se3_current_price') | float(0) %}
+          {% set add_cost = states('input_number.add_fixed_cost') | float(0) %}
+
+          {{ ((cost + add_cost) * 1.25) | round(2, default=0) }}
+```
+
+{% endraw %}
