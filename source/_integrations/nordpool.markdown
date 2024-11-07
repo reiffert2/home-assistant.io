@@ -20,6 +20,12 @@ Integrates [Nord Pool Group](https://www.nordpoolgroup.com/) energy prices into 
 
 {% include integrations/config_flow.md %}
 
+{% tip %}
+Only a single configuration entry is supported so ensure you select all the areas of interest when you setup the integration.
+
+EUR is the base currency for market prices, You will find in the `Exchange rate` sensor the relevant conversion used if you choose another currency.
+{% endtip %}
+
 ## Sensors
 
 ### Main sensors
