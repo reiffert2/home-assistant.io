@@ -23,17 +23,17 @@ The {% term integration %} provides the public market prices displayed on the [N
 {% include integrations/config_flow.md %}
 
 {% tip %}
-Only a single configuration entry is supported, ensure you select all the areas of interest when you set up the integration.
+Only a single configuration entry is supported. When setting up the integration, ensure you select all the areas of interest.
 
-EUR is the base currency for market prices, You will find in the `Exchange rate` sensor the relevant conversion used if you choose another currency.
-All prices will be displayed as `selected_currency/kWh`.
+EUR is the base currency for market prices. If you choose another currency, you can find the conversion rate in the `Exchange rate` sensor.
+All prices are displayed as `selected_currency/kWh`.
 {% endtip %}
 
 {% configuration_basic %}
 Areas:
-  description: Select one or multiple of market areas to create sensors for.
+  description: Select one or multiple market areas to create sensors for.
 Currency:
-  description: Currency to display prices in, EUR is the base currency in Nord Pool prices.
+  description: Currency to display prices in. EUR is the base currency in Nord Pool prices.
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -46,7 +46,7 @@ Each market area will create a device which has the following sensors:
 - Previous price for the selected area
 - Next price for the selected area
 
-These sensors can be used to calculate your current cost of energy, should I charge my battery now or next hour etc.
+These sensors can be used to calculate your current energy cost, or to help decide whether to charge the battery now or in an hour, etc.
 
 ### Block price sensors
 
