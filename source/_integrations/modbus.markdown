@@ -59,7 +59,7 @@ name:
 restart_delay:
   description: "Time to delay re-establishing a connection after connection close.
   Some modbus devices need a delay of typically 1-2 seconds after an existing connection is closed before creating a new connection.
-  If a device does not respond to messages after reloading yaml files, then try this parameter."
+  If a device does not respond to messages after reloading YAML files, then try this parameter."
   required: false
   default: 0
   type: integer
