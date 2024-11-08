@@ -67,7 +67,7 @@ The daily average sensor is not enabled by default.
 
 ### Diagnostic sensors
 
-- Last updated - indicated when the market price was last updated.
+- Last updated - indicates when the market price was last updated.
 - Currency - The selected currency.
 - Exchange rate - EUR is the base currency so will show the exchange rate used on the market place.
 
