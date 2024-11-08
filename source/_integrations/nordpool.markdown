@@ -23,7 +23,7 @@ The {% term integration %} provides the public market prices displayed on the [N
 {% include integrations/config_flow.md %}
 
 {% tip %}
-Only a single configuration entry is supported so ensure you select all the areas of interest when you setup the integration.
+Only a single configuration entry is supported, ensure you select all the areas of interest when you set up the integration.
 
 EUR is the base currency for market prices, You will find in the `Exchange rate` sensor the relevant conversion used if you choose another currency.
 All prices will be displayed as `selected_currency/kWh`.
@@ -37,6 +37,8 @@ Currency:
 {% endconfiguration_basic %}
 
 ## Sensors
+
+Each market area will create a device which has the following sensors:
 
 ### Main sensors
 
@@ -54,14 +56,14 @@ These sensors can be used to calculate your current cost of energy, should I cha
 - Block start time
 - Block end time
 
-These sensors show the minimum/maximum and average during certain blocks of the day. More known as off-peak (cheaper) or peak hours (expensive).
-These sensors are not enabled by default and needs to be enabled to be used.
+These sensors show the minimum/maximum and average during certain blocks of the day. More known as off-peak (typically lower price) or peak hours (typically higher price).
+The block price sensors are not enabled by default.
 
 ### Daily average
 
 - Daily average
 
-This sensor is not enabled by default.
+The daily average sensor is not enabled by default.
 
 ### Diagnostic sensors
 
@@ -86,7 +88,7 @@ template:
         state: >
           {% set cost = states('sensor.nord pool_se3_current_price') | float(0) %}
           {% set add_cost = states('input_number.add_fixed_cost') | float(0) %}
-
+          # Add fixed cost to the spot price and add VAT (25%)
           {{ ((cost + add_cost) * 1.25) | round(2, default=0) }}
 ```
 
